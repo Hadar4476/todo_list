@@ -1,0 +1,42 @@
+@import "../../styles/variables";
+
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  .title {
+    font-weight: bold;
+    font-size: 20px;
+    border-bottom: 1px solid $color-black;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+  }
+
+  .post-comment {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .comment-input {
+      border: 1px solid black;
+
+      textarea {
+        padding: 10px;
+      }
+    }
+
+    .post {
+      background-color: $color-dark-pink;
+      color: $color-white;
+      height: 40px;
+      font-size: 16px;
+    }
+  }
+}

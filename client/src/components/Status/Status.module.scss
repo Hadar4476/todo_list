@@ -1,0 +1,25 @@
+@import "../../styles/variables";
+
+.status {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 2.5px 10px;
+  border-radius: 15px;
+  color: $color-white;
+  position: absolute;
+  right: -10px;
+  top: -10px;
+}
+
+.status-done {
+  background-color: $color-green;
+}
+.status-undone {
+  background-color: $color-red;
+}
+.status-paused {
+  background-color: $color-orange;
+}
+.status-inProgress {
+  background-color: $color-blue;
+}

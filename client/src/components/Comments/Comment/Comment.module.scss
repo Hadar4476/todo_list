@@ -1,0 +1,18 @@
+@import "../../../styles/_variables";
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+  border-radius: 14px;
+  padding: 10px;
+  background-color: $color-light-black;
+  color: $color-white;
+
+  .date {
+    font-size: 12px;
+    font-weight: bold;
+    align-self: flex-end;
+  }
+}

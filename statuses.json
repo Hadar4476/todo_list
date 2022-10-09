@@ -1,0 +1,14 @@
+[
+  {
+    "value": "done"
+  },
+  {
+    "value": "undone"
+  },
+  {
+    "value": "paused"
+  },
+  {
+    "value": "inProgress"
+  }
+]

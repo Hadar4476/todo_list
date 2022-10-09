@@ -1,0 +1,40 @@
+.modal {
+  position: fixed;
+  width: calc(100% - 40px);
+  max-width: 680px;
+  z-index: 200;
+  top: 20%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.modal-entering {
+  animation: showModal 0.4s ease-in forwards;
+}
+
+.modal-exiting {
+  animation: hideModal 0.4s ease-out forwards;
+}
+
+@keyframes showModal {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hideModal {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}

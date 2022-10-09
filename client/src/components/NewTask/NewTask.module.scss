@@ -1,0 +1,70 @@
+@import "../../styles/variables";
+
+.new-task {
+  display: flex;
+  flex-direction: column;
+  background-color: $color-white;
+  height: 100%;
+
+  .title {
+    color: $color-white;
+    background-color: $color-blue;
+    padding: 10px 0;
+    text-align: center;
+    margin: 0;
+    font-size: 25px;
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+    padding: 20px;
+
+    .field {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-weight: bold;
+      }
+
+      input {
+        height: 40px;
+        padding: 0 10px;
+      }
+
+      textarea {
+        padding: 10px;
+      }
+
+      input,
+      textarea {
+        border: 1px solid $color-black;
+      }
+
+      .error {
+        color: red;
+        font-size: 14px;
+      }
+    }
+
+    .status-select {
+      height: 40px;
+      border: 1px solid $color-black;
+
+      select {
+        padding: 0 5px;
+      }
+    }
+
+    .confirm {
+      color: $color-white;
+      background-color: $color-dark-pink;
+      margin-top: auto;
+      height: 40px;
+      font-weight: bold;
+    }
+  }
+}

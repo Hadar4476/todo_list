@@ -1,0 +1,14 @@
+@import "../../../styles/variables";
+
+.button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.button:disabled {
+  color: $color-white;
+  background-color: $color-gray !important;
+  cursor: not-allowed;
+}
