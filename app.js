@@ -15,15 +15,10 @@ const statuses = require("./routes/statuses");
 dotENV.config();
 
 mongoose
-  .connect(
-    process.env.NODE_ENV === "production"
-      ? "mongodb+srv://hadar4476:hadar123456@cluster0.tcbkqze.mongodb.net/?retryWrites=true&w=majority"
-      : process.env.MONGODB_URI,
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     initStatuses();
 
