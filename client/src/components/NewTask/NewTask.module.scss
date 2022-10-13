@@ -6,13 +6,25 @@
   background-color: $color-white;
   height: 100%;
 
-  .title {
+  .header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: $color-white;
     background-color: $color-blue;
     padding: 10px 0;
-    text-align: center;
-    margin: 0;
-    font-size: 25px;
+
+    .title {
+      margin: 0;
+      font-size: 25px;
+    }
+
+    .icon {
+      position: absolute;
+      right: 10px;
+      font-size: 25px;
+    }
   }
 
   .body {
