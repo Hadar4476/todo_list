@@ -5,11 +5,14 @@ import { url } from "../../my-axios";
 import { globalActions } from "../../store";
 import { formatCamelCase } from "../../utils/string";
 
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+
 import Button from "../UI/Button/Button";
 import CustomSelect from "../UI/CustomSelect/CustomSelect";
 import CustomInput from "../UI/CustomInput/CustomInput";
 
 import classes from "./NewTask.module.scss";
+import Icon from "../UI/Icon/Icon";
 
 const NewTask = (props) => {
   const { emitCloseModal } = props;
@@ -147,7 +150,14 @@ const NewTask = (props) => {
 
   return (
     <form className={classes["new-task"]} onSubmit={onAddPost}>
-      <h1 className={classes.title}>New task</h1>
+      <div className={classes.header}>
+        <h1 className={classes.title}>New task</h1>
+        <Icon
+          icon={faXmark}
+          className={classes.icon}
+          emitClick={emitCloseModal}
+        />
+      </div>
       <div className={classes.body}>
         <div className={classes["field-wrapper"]}>
           <CustomInput
