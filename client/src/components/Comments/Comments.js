@@ -8,8 +8,6 @@ import CustomInput from "../UI/CustomInput/CustomInput";
 
 import classes from "./Comments.module.scss";
 
-let isInitialized = false;
-
 const Comments = (props) => {
   const { taskId } = props;
 
@@ -19,24 +17,20 @@ const Comments = (props) => {
   const { sendRequest } = useHttp();
 
   useEffect(() => {
-    if (!isInitialized && !comments.length) {
-      isInitialized = true;
+    const initComments = (comments) => {
+      setComments(comments);
+    };
 
-      const initComments = (comments) => {
-        setComments(comments);
-      };
+    const requestConfig = {
+      method: "get",
+      url: `${url}/comments/getCommentsByTaskId`,
+      params: {
+        taskId,
+      },
+    };
 
-      const requestConfig = {
-        method: "get",
-        url: `${url}/comments/getCommentsByTaskId`,
-        params: {
-          taskId,
-        },
-      };
-
-      sendRequest(requestConfig, initComments);
-    }
-  }, [sendRequest, comments, taskId]);
+    sendRequest(requestConfig, initComments);
+  }, [sendRequest, taskId]);
 
   const onChangeComment = useCallback(({ target }) => {
     const { value } = target;
