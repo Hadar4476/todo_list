@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import useHttp from "../../hooks/use-http";
 import { url } from "../../my-axios";
@@ -99,40 +99,37 @@ const NewTask = (props) => {
     });
   };
 
-  const onAddPost = useCallback(
-    (event) => {
-      event.preventDefault();
+  const onAddPost = (event) => {
+    event.preventDefault();
 
-      const isValid = Object.keys(newTaskForm).every(
-        (k) => newTaskForm[k].isValid
-      );
+    const isValid = Object.keys(newTaskForm).every(
+      (k) => newTaskForm[k].isValid
+    );
 
-      if (!isValid) {
-        setNewTaskForm((prevState) => {
-          const updatedObject = { ...prevState };
+    if (!isValid) {
+      setNewTaskForm((prevState) => {
+        const updatedObject = { ...prevState };
 
-          for (const key in updatedObject) {
-            updatedObject[key].error = `Please enter a valid ${key} value`;
-            updatedObject[key].isValid = false;
-          }
+        for (const key in updatedObject) {
+          updatedObject[key].error = `Please enter a valid ${key} value`;
+          updatedObject[key].isValid = false;
+        }
 
-          return updatedObject;
-        });
+        return updatedObject;
+      });
 
-        return;
-      }
+      return;
+    }
 
-      const newTask = {};
+    const newTask = {};
 
-      for (const key in newTaskForm) {
-        newTask[key] = newTaskForm[key].value.trim();
-      }
+    for (const key in newTaskForm) {
+      newTask[key] = newTaskForm[key].value.trim();
+    }
 
-      dispatch(globalActions.tasks.postTask(newTask));
-      emitCloseModal();
-    },
-    [dispatch, newTaskForm, emitCloseModal]
-  );
+    dispatch(globalActions.tasks.postTask(newTask));
+    emitCloseModal();
+  };
 
   const shouldDisable = !Object.keys(newTaskForm).every(
     (k) => newTaskForm[k].isValid
@@ -206,4 +203,4 @@ const NewTask = (props) => {
   );
 };
 
-export default NewTask;
+export default React.memo(NewTask);
